@@ -1,25 +1,5 @@
 <template>
   <div style="height: calc(100vh - 75px);margin: 0 20px;">
-    <div class="handle-box">
-      <el-select clearable filterable remote reserve-keyword placeholder="河流名称" :loading="loading" class="handle-input mr10">
-        <el-option></el-option>
-      </el-select>
-      <el-input v-model="username" placeholder="巡河人" class="handle-input mr10 inputWidth"></el-input>
-      <el-date-picker
-        type="daterange"
-        value-format="yyyy-MM-dd"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期"
-        class="inputTimeWidth">
-      </el-date-picker>
-
-      <!--<select v-model="selected" style="font-size: 13px;color: #606266;padding: 6px 10px;border-radius: 4px;border: 1px solid #dcdfe6;">
-        <option v-for="item in optList">{{ item }}</option>
-      </select>-->
-
-      <el-button type="primary">查询</el-button>
-      <el-button>重置</el-button>
-    </div>
     <el-table
       :data="tableData"
       border
@@ -63,7 +43,7 @@
       title="查看"
       :visible.sync="dialogVisible"
       width="80%"
-      :before-close="handleClose">
+      >
       <div class="dialog-body">
         <table border="1px solid #eee" cellpadding="0" cellspacing="0" width="100%">
           <tr>
@@ -142,7 +122,6 @@
       handleCurrentChange(val) {
         this.pageNum = val;
         this.getTableData(this.pageNum,this.pageSize);
-        console.log(val);
       },
       getTableData(pageNum,pageSize){
         var _self = this;
@@ -160,13 +139,11 @@
         }).then((res) => {
           _self.listLoading = false;
           if(res.status == 200){
-            console.info(res);
             _self.tableData = res.data.list;
             _self.totalRow = res.data.totalRow;
           }
         }).catch(function (error){
           _self.listLoading = false;
-          console.log(error);
         });
 
       },
