@@ -12,18 +12,7 @@
         end-placeholder="结束日期"
         class="inputTimeWidth">
       </el-date-picker>
-      <el-row class="xiaLa">
-        <el-col :span="24">
-          <el-dropdown trigger="click" class="clicks">
-            <span class="el-dropdown-link" style="color: #333333;display: block;width: 100%;height: 100%;line-height: 24px;text-align: center;">
-              行政区划<i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item v-for="item in optList" icon="el-icon-plus">{{ item }}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </el-col>
-      </el-row>
+
       <!--<select v-model="selected" style="font-size: 13px;color: #606266;padding: 6px 10px;border-radius: 4px;border: 1px solid #dcdfe6;">
         <option v-for="item in optList">{{ item }}</option>
       </select>-->
