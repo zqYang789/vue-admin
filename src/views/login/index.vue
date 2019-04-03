@@ -46,8 +46,8 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
 
+import  axios from 'axios'
 export default {
   name: 'Login',
   data() {
@@ -76,12 +76,22 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$store.dispatch('Login', this.loginForm).then(() => {
-            this.loading = false
-            this.$router.push({ path: this.redirect || '/' })
-          }).catch(() => {
-            this.loading = false
-          })
+          axios({
+              method: 'post',
+              url: '/user/login',
+          }).then((res) => {
+            this.loading = false;
+            if(res.status == 200 ){
+              this.$router.push({ path: this.redirect || '/' })
+            }else{
+              this.$message({
+                type: 'warning',
+                message: res.statusText
+              });
+            }
+          }).catch((res)=>{
+              this.loading = false
+          });
         } else {
           console.log('error submit!!')
           return false

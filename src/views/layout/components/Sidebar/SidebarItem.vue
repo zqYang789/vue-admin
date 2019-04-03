@@ -35,7 +35,6 @@
 
 <script>
 import path from 'path'
-import { isExternal } from '@/utils/validate'
 import Item from './Item'
 import AppLink from './Link'
 
@@ -63,6 +62,9 @@ export default {
     }
   },
   methods: {
+    isExternal(path) {
+      return /^(https?:|mailto:|tel:)/.test(path)
+    },
     hasOneShowingChild(children, parent) {
       const showingChildren = children.filter(item => {
         if (item.hidden) {
@@ -94,7 +96,7 @@ export default {
       return path.resolve(this.basePath, routePath)
     },
     isExternalLink(routePath) {
-      return isExternal(routePath)
+      return this.isExternal(routePath)
     }
   }
 }

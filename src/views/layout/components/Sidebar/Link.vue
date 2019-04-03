@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { isExternal } from '@/utils/validate'
+
 
 export default {
   props: {
@@ -17,8 +17,11 @@ export default {
     }
   },
   methods: {
+    isExternal(path) {
+      return /^(https?:|mailto:|tel:)/.test(path)
+    },
     linkProps(url) {
-      if (isExternal(url)) {
+      if (this.isExternal(url)) {
         return {
           is: 'a',
           href: url,

@@ -10,17 +10,18 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import store from './store'
 import router from './router'
+import axios from '../config/http'
 
 import '@/icons' // icon
-import '@/permission' // permission control
+
 
 /**
- * This project originally used easy-mock to simulate data,
+ * This project originally used easy-mock_data to simulate data,
  * but its official service is very unstable,
  * and you can build your own service if you need it.
  * So here I use Mock.js for local emulation,
  * it will intercept your request, so you won't see the request in the network.
- * If you remove `../mock` it will automatically request easy-mock data.
+ * If you remove `../mock_data` it will automatically request easy-mock_data data.
  */
 require('./mock.js'	)
 
