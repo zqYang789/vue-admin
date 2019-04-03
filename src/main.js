@@ -12,7 +12,7 @@ import store from './store'
 import router from './router'
 import axios from '../config/http'
 
-import '@/icons' // icon
+
 
 
 /**

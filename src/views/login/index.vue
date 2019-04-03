@@ -9,7 +9,6 @@
         <h3 class="title">宁津县河长制管理信息系统</h3>
         <el-form-item prop="username" class="username">
         <span class="svg-container">
-          <svg-icon class="login-user" />
         </span>
           <el-input
             v-model="loginForm.username"
@@ -21,7 +20,7 @@
         </el-form-item>
         <el-form-item prop="password" class="password">
         <span class="svg-container">
-          <svg-icon class="login-password" />
+
         </span>
           <el-input
             :type="pwdType"
@@ -190,6 +189,7 @@ $light_gray:#2689fc;
     .login-form {
       float: left;
       width: 465px;
+      height: 380px;
       max-width: 100%;
       padding: 35px 5px 23px 5px;
       background-color: $bg;
